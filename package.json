@@ -1,0 +1,17 @@
+{
+  "name": "career-stack",
+  "version": "0.0.1",
+  "description": "This is an app to help users track their job searching progression",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "electron": "tsc && electron ."
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "electron": "^29.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}
