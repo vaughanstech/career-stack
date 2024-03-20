@@ -6,12 +6,18 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "electron": "tsc && electron ."
+    "electron": "tsc && node electron ."
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/electron": "^1.6.10",
+    "cors": "^2.8.5",
     "electron": "^29.1.4",
+    "express": "^4.19.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21"
   }
 }
