@@ -1,4 +1,4 @@
-function serializeForm(form: HTMLFormElement) {
+function serializeForm(form: HTMLFormElement): Record<string, string> {
   const formData = new FormData(form);
 
   // Convert form data to JSON

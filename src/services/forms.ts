@@ -1,4 +1,5 @@
 function showUpdateForm() {
+  console.log("Generating update form");
   const updateFormContainer = document.getElementById("updateFormContainer");
   const submitFormContainer = document.getElementById("submitFormContainer");
 
@@ -9,6 +10,7 @@ function showUpdateForm() {
 }
 
 function showSubmitForm() {
+  console.log("Generating submit form");
   const updateFormContainer = document.getElementById("updateFormContainer");
   const submitFormContainer = document.getElementById("submitFormContainer");
 
