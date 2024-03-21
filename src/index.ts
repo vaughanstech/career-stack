@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from "electron";
+import { createFile } from "./services/check-file";
 
 let mainWindow: BrowserWindow | null;
 
@@ -12,6 +13,8 @@ app.on("ready", () => {
       experimentalFeatures: false,
     },
   });
+
+  createFile();
 
   mainWindow?.loadFile("./src/index.html");
 
