@@ -1,9 +1,12 @@
 import { Request, Response } from "express";
 import * as fs from "fs";
 import express = require("express");
+import * as cors from "cors";
 
 const app = express();
 const PORT = 2020;
+
+app.use(cors());
 
 interface Job {
   APPLICATION_ID: number;
@@ -21,12 +24,16 @@ interface Job {
   OFFER_MADE_DATE: string;
 }
 
-const dataFilePath = "../data/data.json";
+const dataFilePath = "./data/data.json";
 
 // Read data from JSON file
 function readDataFromFile(): Job[] {
   try {
     const data = fs.readFileSync(dataFilePath, "utf8");
+    if (!data) {
+      console.log("The data in the file is empty");
+      return [];
+    }
     return JSON.parse(data);
   } catch (error) {
     console.error("Error reading data from file: ", error);
