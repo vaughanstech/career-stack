@@ -6,8 +6,9 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "electron": "electron .",
+    "electron": "tsc && electron .",
     "express": "node ./dist/app.js",
+    "dev": "npm run build && npm run express",
     "app:dev": "npm run build && concurrently \"npm run express\" \"npm run electron\""
   },
   "dependencies": {
