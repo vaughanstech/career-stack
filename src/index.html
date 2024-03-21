@@ -4,8 +4,111 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Electron TypeScript App</title>
+        <script src="./services/submit-form.ts" defer></script>
+        <script src="./app.ts" defer></script>
+        <script src="./services/forms.ts" defer></script>
     </head>
     <body>
-        <h1>Hello, Electron TypeScript!</h1>
+        <header>
+            <h1>Hello, Electron TypeScript!</h1>
+        </header>
+        <main>
+            <div id="jobCountContainer"></div>
+
+            <button id="updateBtn">Update Job</button>
+
+            <button id="submitBtn">Submit Job</button>
+
+            <div id="updateFormContainer" style="display: none;">
+                <form id="updateForm">
+                    <label for="applicationId">Application ID:</label>
+                    <input type="text" id="updateApplicationId" name="APPLICATION_ID" required>
+                    <br>
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="updateCompanyName" name="COMPANY_NAME">
+                    <br>
+                    <label for="positionTitle">Position Title:</label>
+                    <input type="text" id="updatePositionTitle" name="POSITION_TITLE">
+                    <br>
+                    <label for="location">Location:</label>
+                    <input type="text" id="updateLocation" name="LOCATION">
+                    <br>
+                    <label for="salaryRange">Salary Range:</label>
+                    <input type="text" id="updateSalaryRange" name="SALARY_RANGE">
+                    <br>
+                    <label for="applicationSubmittedDate">Application Submitted Date:</label>
+                    <input type="text" id="updateApplicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
+                    <br>
+                    <label for="acceptedOrDenied">Accepted or Denied:</label>
+                    <input type="text" id="updateAcceptedOrDenied" name="ACCEPTED_OR_DENIED">
+                    <br>
+                    <label for="hiringManagerResponded">Hiring Manager Responded:</label>
+                    <input type="text" id="updateHiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
+                    <br>
+                    <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
+                    <input type="text" id="updateHiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
+                    <br>
+                    <label for="interviewScheduled">Interview Scheduled:</label>
+                    <input type="text" id="updateInterviewScheduled" name="INTERVIEW_SCHEDULED">
+                    <br>
+                    <label for="interviewScheduledDate">Interview Scheduled Date:</label>
+                    <input type="text" id="updateInterviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
+                    <br>
+                    <label for="offerMade">Offer Made:</label>
+                    <input type="text" id="updateOfferMade" name="OFFER_MADE">
+                    <br>
+                    <label for="offerMadeDate">Offer Made Date:</label>
+                    <input type="text" id="updateOfferMadeDate" name="OFFER_MADE_DATE">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div id="submitFormContainer" style="display: none;">
+                <form id="submitForm">
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="COMPANY_NAME" required>
+                    <br>
+                    <label for="positionTitle">Position Title:</label>
+                    <input type="text" id="positionTitle" name="POSITION_TITLE" required>
+                    <br>
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="LOCATION" required>
+                    <br>
+                    <label for="salaryRange">Salary Range:</label>
+                    <input type="text" id="salaryRange" name="SALARY_RANGE" required>
+                    <br>
+                    <label for="applicationSubmittedDate">Application Submitted Date:</label>
+                    <input type="text" id="applicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
+                    <br>
+                    <label for="acceptedOrDenied">Accepted or Denied:</label>
+                    <input type="text" id="acceptedOrDenied" name="ACCEPTED_OR_DENIED">
+                    <br>
+                    <label for="hiringManagerResponded">Hiring Manager Responded:</label>
+                    <input type="text" id="hiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
+                    <br>
+                    <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
+                    <input type="text" id="hiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
+                    <br>
+                    <label for="interviewScheduled">Interview Scheduled:</label>
+                    <input type="text" id="interviewScheduled" name="INTERVIEW_SCHEDULED">
+                    <br>
+                    <label for="interviewScheduledDate">Interview Scheduled Date:</label>
+                    <input type="text" id="interviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
+                    <br>
+                    <label for="offerMade">Offer Made:</label>
+                    <input type="text" id="offerMade" name="OFFER_MADE">
+                    <br>
+                    <label for="offerMadeDate">Offer Made Date:</label>
+                    <input type="text" id="offerMadeDate" name="OFFER_MADE_DATE">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div id="submitFormContainer"></div>
+
+            <button id="fetchJobsBtn">Fetch Jobs</button>
+
+            <div id="response"></div>
+        </main>
     </body>
 </html>
