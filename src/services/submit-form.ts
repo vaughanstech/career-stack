@@ -1,11 +1,23 @@
-function serializeForm(form: HTMLFormElement): Record<string, string> {
+let currentUserId = 0;
+
+function generateApplicationId(): number {
+  return ++currentUserId;
+}
+
+function serializeSubmitForm(form: HTMLFormElement): Record<string, string> {
   const formData = new FormData(form);
+
+  const applicationId = generateApplicationId();
 
   // Convert form data to JSON
   const jsonData: Record<string, string> = {};
   formData.forEach((value, key) => {
     jsonData[key] = value.toString();
   });
+
+  jsonData["applicationId"] = applicationId.toString();
+
+  console.log(jsonData);
 
   return jsonData;
 }
