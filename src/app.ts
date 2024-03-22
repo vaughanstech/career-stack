@@ -9,6 +9,8 @@ const PORT = 2020;
 app.use(bodyParser.urlencoded({ extended: true })), app.use(bodyParser.json());
 app.use(cors());
 
+let applicationId = 0;
+
 interface Job {
   APPLICATION_ID: number;
   COMPANY_NAME: string;
@@ -26,6 +28,17 @@ interface Job {
 }
 
 const dataFilePath = "./data/data.json";
+
+// Find the maximum applicationId from existing jobs
+function findMaxApplicationId(jobs: Job[]): number {
+  let maxApplicationId = 0;
+  for (const job of jobs) {
+    if (job.APPLICATION_ID > maxApplicationId) {
+      maxApplicationId = job.APPLICATION_ID;
+    }
+  }
+  return maxApplicationId;
+}
 
 // Read data from JSON file
 function readDataFromFile(): Job[] {
@@ -68,6 +81,8 @@ app.get("/get-jobs", (req: Request, res: Response) => {
 app.post("/submit-job", (req: Request, res: Response) => {
   const jobs = readDataFromFile();
   const newJob = req.body as Job;
+  const maxApplicationId = findMaxApplicationId(jobs);
+  newJob.APPLICATION_ID = maxApplicationId + 1;
   jobs.push(newJob);
   writeDataToFile(jobs);
   res.status(201).json(newJob);
@@ -77,9 +92,15 @@ app.post("/submit-job", (req: Request, res: Response) => {
 app.put("/update-job/:id", (req: Request, res: Response) => {
   const jobs = readDataFromFile();
   const applicationId = parseInt(req.params.id);
-  const updatedJob = req.body as Job;
+  const updatedJob: any = { ...req.body } as Partial<Job>;
   const index = jobs.findIndex((job) => job.APPLICATION_ID === applicationId);
   if (index !== -1) {
+    delete updatedJob.APPLICATION_ID;
+    for (const key in updatedJob) {
+      if (updatedJob[key] === "") {
+        delete updatedJob[key];
+      }
+    }
     jobs[index] = { ...jobs[index], ...updatedJob };
     writeDataToFile(jobs);
     res.json(jobs[index]);
