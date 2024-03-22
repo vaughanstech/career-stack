@@ -2,10 +2,11 @@ import { Request, Response } from "express";
 import * as fs from "fs";
 import express = require("express");
 import * as cors from "cors";
+import * as bodyParser from "body-parser";
 
 const app = express();
 const PORT = 2020;
-
+app.use(bodyParser.urlencoded({ extended: true })), app.use(bodyParser.json());
 app.use(cors());
 
 interface Job {
@@ -50,9 +51,16 @@ function writeDataToFile(data: Job[]): void {
   }
 }
 
+app.get("/", (req: Request, res: Response) => {
+  res.send("Express is on");
+});
+
 // Get all Jobs
 app.get("/get-jobs", (req: Request, res: Response) => {
   const jobs = readDataFromFile();
+  if (res.json === null) {
+    res.send("There are not jobs");
+  }
   res.json(jobs);
 });
 

@@ -6,6 +6,7 @@ function serializeForm(form: HTMLFormElement): Record<string, string> {
   formData.forEach((value, key) => {
     jsonData[key] = value.toString();
   });
+
   return jsonData;
 }
 
