@@ -39,7 +39,16 @@ document
         }
       );
 
-      await response.json();
+      if (response.ok) {
+        console.debug({
+          function: "updateJob()",
+          message: `Successfully update job at applicationId: ${applicationId}`,
+        });
+        alert("Job has been successfully updated");
+        window.location.reload();
+      } else {
+        console.error("Failed to update job", response.statusText);
+      }
     } catch (error) {
       console.error("Error", error);
     }

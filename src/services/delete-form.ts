@@ -38,7 +38,16 @@ document
         }
       );
 
-      await response.json();
+      if (response.ok) {
+        console.debug({
+          function: "deleteJob()",
+          message: `Successfully deleted applicationId: ${applicationId}`,
+        });
+        alert("Job has been successfully deleted");
+        window.location.reload();
+      } else {
+        console.error("Failed to delete data", response.statusText);
+      }
     } catch (error) {
       console.error("Error", error);
     }

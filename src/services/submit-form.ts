@@ -42,12 +42,18 @@ document
         body: JSON.stringify(requestBody),
       });
 
-      const submitJob = await response.json(); // Parse response JSON
+      if (response.ok) {
+        window.location.reload();
+        const submitJob = await response.json(); // Parse response JSON
 
-      console.log({
-        function: "submitForm",
-        message: `Successfully submitted job ${submitJob.POSITION_TITLE} at ${submitJob.COMPANY_NAME}`,
-      });
+        console.debug({
+          function: "submitForm()",
+          message: `Successfully submitted job ${submitJob.POSITION_TITLE} at ${submitJob.COMPANY_NAME}`,
+        });
+        alert("Job successfully submitted");
+      } else {
+        console.error("Failed to submit data", response.statusText);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
