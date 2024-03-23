@@ -9,6 +9,7 @@
         <script src="../dist/services/forms.js" defer></script>
         <script src="../dist/services/fetch-jobs.js" defer></script>
         <script src="../dist/services/update-form.js" defer></script>
+        <script src="../dist/services/delete-form.js" defer></script>
     </head>
     <body>
         <header>
@@ -20,6 +21,8 @@
             <button id="updateBtn">Update Job</button>
 
             <button id="submitBtn">Submit Job</button>
+
+            <button id="deleteBtn">Delete Job</button>
 
             <div id="updateFormContainer" style="display: none;">
                 <form id="updateForm">
@@ -102,6 +105,14 @@
                     <br>
                     <label for="offerMadeDate">Offer Made Date:</label>
                     <input type="text" id="offerMadeDate" name="OFFER_MADE_DATE">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div id="deleteFormContainer" style="display: none;">
+                <form id="deleteForm">
+                    <label for="applicationId">Application ID</label>
+                    <input type="text" id="deleteApplicationId" name="APPLICATION_ID">
                     <button type="submit">Submit</button>
                 </form>
             </div>

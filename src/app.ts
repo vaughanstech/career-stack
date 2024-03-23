@@ -9,8 +9,6 @@ const PORT = 2020;
 app.use(bodyParser.urlencoded({ extended: true })), app.use(bodyParser.json());
 app.use(cors());
 
-let applicationId = 0;
-
 interface Job {
   APPLICATION_ID: number;
   COMPANY_NAME: string;
