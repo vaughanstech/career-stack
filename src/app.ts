@@ -66,6 +66,17 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express is on");
 });
 
+app.get("/job-count", (req: Request, res: Response) => {
+  try {
+    const jobs = readDataFromFile();
+    const jobCount = jobs.length;
+    res.json({ count: jobCount });
+  } catch (error) {
+    console.error("Error", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 // Get all Jobs
 app.get("/get-jobs", (req: Request, res: Response) => {
   const jobs = readDataFromFile();
