@@ -19,6 +19,7 @@ async function fetchAndRenderJobs() {
 
     // Create a new unordered list for each user
     const jobList = document.createElement("ul");
+    jobList.classList.add("fetchJobContainer");
 
     // Iterate over each user record and create list items
     data.forEach((job: Record<string, string>) => {

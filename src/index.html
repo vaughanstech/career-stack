@@ -11,118 +11,126 @@
         <script src="../dist/services/update-form.js" defer></script>
         <script src="../dist/services/delete-form.js" defer></script>
         <script src="../dist/services/job-count.js" defer></script>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <header>
-            <h1>Hello, Electron TypeScript!</h1>
-        </header>
-        <main>
-            <div id="jobCountContainer"></div>
+        <div class="container">
+            <header>
+                <h1>Hello, Electron TypeScript!</h1>
+            </header>
+            <main class="content">
+                <div class="job-counter" id="jobCountContainer"></div>
+    
+                <div class="buttons">
+                    <button class="button" id="updateBtn">Update Job</button>
+    
+                    <button class="button" id="submitBtn">Submit Job</button>
+    
+                    <button class="button" id="deleteBtn">Delete Job</button>
 
-            <button id="updateBtn">Update Job</button>
+                    <button class="button" id="fetchJobsBtn">Fetch Jobs</button>
 
-            <button id="submitBtn">Submit Job</button>
-
-            <button id="deleteBtn">Delete Job</button>
-
-            <div id="updateFormContainer" style="display: none;">
-                <form id="updateForm">
-                    <label for="applicationId">Application ID:</label>
-                    <input type="text" id="updateApplicationId" name="APPLICATION_ID" required>
-                    <br>
-                    <label for="companyName">Company Name:</label>
-                    <input type="text" id="updateCompanyName" name="COMPANY_NAME">
-                    <br>
-                    <label for="positionTitle">Position Title:</label>
-                    <input type="text" id="updatePositionTitle" name="POSITION_TITLE">
-                    <br>
-                    <label for="location">Location:</label>
-                    <input type="text" id="updateLocation" name="LOCATION">
-                    <br>
-                    <label for="salaryRange">Salary Range:</label>
-                    <input type="text" id="updateSalaryRange" name="SALARY_RANGE">
-                    <br>
-                    <label for="applicationSubmittedDate">Application Submitted Date:</label>
-                    <input type="text" id="updateApplicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
-                    <br>
-                    <label for="acceptedOrDenied">Accepted or Denied:</label>
-                    <input type="text" id="updateAcceptedOrDenied" name="ACCEPTED_OR_DENIED">
-                    <br>
-                    <label for="hiringManagerResponded">Hiring Manager Responded:</label>
-                    <input type="text" id="updateHiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
-                    <br>
-                    <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
-                    <input type="text" id="updateHiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
-                    <br>
-                    <label for="interviewScheduled">Interview Scheduled:</label>
-                    <input type="text" id="updateInterviewScheduled" name="INTERVIEW_SCHEDULED">
-                    <br>
-                    <label for="interviewScheduledDate">Interview Scheduled Date:</label>
-                    <input type="text" id="updateInterviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
-                    <br>
-                    <label for="offerMade">Offer Made:</label>
-                    <input type="text" id="updateOfferMade" name="OFFER_MADE">
-                    <br>
-                    <label for="offerMadeDate">Offer Made Date:</label>
-                    <input type="text" id="updateOfferMadeDate" name="OFFER_MADE_DATE">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            
-            <div id="submitFormContainer" style="display: none;">
-                <form id="submitForm">
-                    <label for="companyName">Company Name:</label>
-                    <input type="text" id="companyName" name="COMPANY_NAME" required>
-                    <br>
-                    <label for="positionTitle">Position Title:</label>
-                    <input type="text" id="positionTitle" name="POSITION_TITLE" required>
-                    <br>
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="LOCATION" required>
-                    <br>
-                    <label for="salaryRange">Salary Range:</label>
-                    <input type="text" id="salaryRange" name="SALARY_RANGE" required>
-                    <br>
-                    <label for="applicationSubmittedDate">Application Submitted Date:</label>
-                    <input type="text" id="applicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
-                    <br>
-                    <label for="acceptedOrDenied">Accepted or Denied:</label>
-                    <input type="text" id="acceptedOrDenied" name="ACCEPTED_OR_DENIED">
-                    <br>
-                    <label for="hiringManagerResponded">Hiring Manager Responded:</label>
-                    <input type="text" id="hiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
-                    <br>
-                    <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
-                    <input type="text" id="hiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
-                    <br>
-                    <label for="interviewScheduled">Interview Scheduled:</label>
-                    <input type="text" id="interviewScheduled" name="INTERVIEW_SCHEDULED">
-                    <br>
-                    <label for="interviewScheduledDate">Interview Scheduled Date:</label>
-                    <input type="text" id="interviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
-                    <br>
-                    <label for="offerMade">Offer Made:</label>
-                    <input type="text" id="offerMade" name="OFFER_MADE">
-                    <br>
-                    <label for="offerMadeDate">Offer Made Date:</label>
-                    <input type="text" id="offerMadeDate" name="OFFER_MADE_DATE">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-
-            <div id="deleteFormContainer" style="display: none;">
-                <form id="deleteForm">
-                    <label for="applicationId">Application ID</label>
-                    <input type="text" id="deleteApplicationId" name="APPLICATION_ID">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-
-            <div id="submitFormContainer"></div>
-
-            <button id="fetchJobsBtn">Fetch Jobs</button>
-
-            <div id="response"></div>
+                </div>
+                
+                <div id="updateFormContainer" style="display: none;">
+                    <form class="forms" id="updateForm">
+                        <label for="applicationId">Application ID:</label>
+                        <input type="text" id="updateApplicationId" name="APPLICATION_ID" required>
+                        <br>
+                        <label for="companyName">Company Name:</label>
+                        <input type="text" id="updateCompanyName" name="COMPANY_NAME">
+                        <br>
+                        <label for="positionTitle">Position Title:</label>
+                        <input type="text" id="updatePositionTitle" name="POSITION_TITLE">
+                        <br>
+                        <label for="location">Location:</label>
+                        <input type="text" id="updateLocation" name="LOCATION">
+                        <br>
+                        <label for="salaryRange">Salary Range:</label>
+                        <input type="text" id="updateSalaryRange" name="SALARY_RANGE">
+                        <br>
+                        <label for="applicationSubmittedDate">Application Submitted Date:</label>
+                        <input type="text" id="updateApplicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
+                        <br>
+                        <label for="acceptedOrDenied">Accepted or Denied:</label>
+                        <input type="text" id="updateAcceptedOrDenied" name="ACCEPTED_OR_DENIED">
+                        <br>
+                        <label for="hiringManagerResponded">Hiring Manager Responded:</label>
+                        <input type="text" id="updateHiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
+                        <br>
+                        <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
+                        <input type="text" id="updateHiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
+                        <br>
+                        <label for="interviewScheduled">Interview Scheduled:</label>
+                        <input type="text" id="updateInterviewScheduled" name="INTERVIEW_SCHEDULED">
+                        <br>
+                        <label for="interviewScheduledDate">Interview Scheduled Date:</label>
+                        <input type="text" id="updateInterviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
+                        <br>
+                        <label for="offerMade">Offer Made:</label>
+                        <input type="text" id="updateOfferMade" name="OFFER_MADE">
+                        <br>
+                        <label for="offerMadeDate">Offer Made Date:</label>
+                        <input type="text" id="updateOfferMadeDate" name="OFFER_MADE_DATE">
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                
+                <div id="submitFormContainer" style="display: none;">
+                    <form class="forms" id="submitForm">
+                        <label for="companyName">Company Name:</label>
+                        <input type="text" id="companyName" name="COMPANY_NAME" required>
+                        <br>
+                        <label for="positionTitle">Position Title:</label>
+                        <input type="text" id="positionTitle" name="POSITION_TITLE" required>
+                        <br>
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" name="LOCATION" required>
+                        <br>
+                        <label for="salaryRange">Salary Range:</label>
+                        <input type="text" id="salaryRange" name="SALARY_RANGE" required>
+                        <br>
+                        <label for="applicationSubmittedDate">Application Submitted Date:</label>
+                        <input type="text" id="applicationSubmittedDate" name="APPLICATION_SUBMITTED_DATE">
+                        <br>
+                        <label for="acceptedOrDenied">Accepted or Denied:</label>
+                        <input type="text" id="acceptedOrDenied" name="ACCEPTED_OR_DENIED">
+                        <br>
+                        <label for="hiringManagerResponded">Hiring Manager Responded:</label>
+                        <input type="text" id="hiringManagerResponded" name="HIRING_MANAGER_RESPONDED">
+                        <br>
+                        <label for="hiringManagerRespondedDate">Hiring Manager Responded Date:</label>
+                        <input type="text" id="hiringManagerRespondedDate" name="HIRING_MANAGER_RESPONDED_DATE">
+                        <br>
+                        <label for="interviewScheduled">Interview Scheduled:</label>
+                        <input type="text" id="interviewScheduled" name="INTERVIEW_SCHEDULED">
+                        <br>
+                        <label for="interviewScheduledDate">Interview Scheduled Date:</label>
+                        <input type="text" id="interviewScheduledDate" name="INTERVIEW_SCHEDULED_DATE">
+                        <br>
+                        <label for="offerMade">Offer Made:</label>
+                        <input type="text" id="offerMade" name="OFFER_MADE">
+                        <br>
+                        <label for="offerMadeDate">Offer Made Date:</label>
+                        <input type="text" id="offerMadeDate" name="OFFER_MADE_DATE">
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+    
+                <div id="deleteFormContainer" style="display: none;">
+                    <form class="forms" id="deleteForm">
+                        <label for="applicationId">Application ID</label>
+                        <input type="text" id="deleteApplicationId" name="APPLICATION_ID">
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+    
+                <div id="response"></div>
+        </div>
+        
         </main>
     </body>
 </html>
