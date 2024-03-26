@@ -132,6 +132,23 @@ app.delete("/delete-job/:id", (req: Request, res: Response) => {
   }
 });
 
+// Find Jobs
+app.get("/find-jobs", (req: Request, res: Response) => {
+  const searchQuery: string = ((req.query.q as string) || "").toLowerCase();
+  const jobsData = readDataFromFile();
+  const filteredJobs = jobsData.filter((job: any) => {
+    for (const field in job) {
+      if (job.hasOwnProperty(field) && typeof job[field] === "string") {
+        if (job[field].toLowerCase().includes(searchQuery)) {
+          return true;
+        }
+      }
+    }
+  });
+
+  res.json(filteredJobs);
+});
+
 // Start the server on local port
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -12,6 +12,7 @@
         <script src="../dist/services/delete-form.js" defer></script>
         <script src="../dist/services/job-count.js" defer></script>
         <script src="../dist/services/scroll.js" defer></script>
+        <script src="../dist/services/search-jobs.js" defer></script>
         <link rel="stylesheet" href="./style.css">
         <link href="./font/FiraCode-Medium.ttf">
     </head>
@@ -21,6 +22,8 @@
                 <h1>Hello, Electron TypeScript!</h1>
             </header>
             <main class="content">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="searchJobs()">Search</button>
                 <div class="job-counter" id="jobCountContainer"></div>
     
                 <div class="buttons">
