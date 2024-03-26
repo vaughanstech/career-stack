@@ -46,6 +46,26 @@ html {
 
 .button:hover {
   background-color: #76abae;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.searchField {
+  width: 200px;
+  background: #eeeeee;
+}
+
+.searchBtn {
+  margin-top: 10px;
+  background: #576e86;
+  border: none;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
+  color: #a8bace;
+}
+
+.searchBtn:hover {
+  background: #394d61;
 }
 
 .forms {
@@ -61,13 +81,13 @@ html {
 .forms input[type="text"],
 .forms textarea,
 .forms label {
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 16px;
   color: #fff;
 }
 
 .forms label {
   display: block;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -81,7 +101,8 @@ html {
   background: transparent;
   border: none;
   border-bottom: 1px dashed #83a4c5;
-  width: 275px;
+  margin-bottom: 5px;
+  width: 450px;
   outline: none;
   padding: 0px 0px 0px 0px;
   font-style: italic;

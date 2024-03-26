@@ -59,7 +59,7 @@ async function searchJobs() {
   }
 }
 
-const searchButton: HTMLButtonElement = document.getElementById(
+const searchButton: HTMLButtonElement | null = document.getElementById(
   "searchButton"
-) as HTMLButtonElement;
-searchButton.addEventListener("click", searchJobs);
+) as HTMLButtonElement | null;
+searchButton?.addEventListener("click", searchJobs);
