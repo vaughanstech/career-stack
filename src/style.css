@@ -4,6 +4,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Droid Sans Mono", "monospace", monospace;
 }
 
 .container {
@@ -105,10 +106,49 @@ html {
 }
 
 .fetchJobContainer {
-  width: 450px;
+  width: 500px;
   font-size: 16px;
   background: transparent;
   padding: 30px 30px 15px 30px;
   border: 5px solid #53687e;
   list-style-type: none;
+  font-family: "Droid Sans Mono", "monospace", monospace;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background-color: #53687e;
+  margin: 20px 0;
+}
+
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #53687e;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+#scrollToTop::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(135deg);
+  width: 15px;
+  height: 15px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+#scrollToTop.show {
+  display: block;
 }
